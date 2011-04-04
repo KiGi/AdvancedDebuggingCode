@@ -1,0 +1,22 @@
+# xcode noise
+Build/*
+build/*
+*.pbxuser
+*.mode1v3
+*.perspectivev3
+*.mergesave
+*.coredataeditor
+*~
+*.mode2v3
+xcuserdata
+
+# old skool
+.svn
+
+# osx noise
+.DS_Store
+.LSOverride
+
+# Image Stuff
+ImageMaster/*
+
