@@ -12,6 +12,8 @@
 
 #import "DAFullScreenImageViewController.h"
 
+#import "DATrackingManager.h"
+
 // Private interface to declare internal only properties and methods
 @interface DAMainImageExplorer()
 - (void) releaseOutlets;
@@ -25,6 +27,12 @@
 - (void)dealloc {
     [self releaseOutlets];
     [super dealloc];
+}
+
+- (void)viewDidUnload {
+    [self releaseOutlets];
+	// Release any retained subviews of the main view.
+	// e.g. self.myOutlet = nil;
 }
 
 - (void) releaseOutlets
@@ -109,6 +117,12 @@
 #pragma mark UIViewController methods
 
 
+- (void) viewWillAppear:(BOOL)animated
+{
+    [DATrackingManager trackTabPressed:0];;
+    [super viewWillAppear:animated];
+}
+
 - (void)didReceiveMemoryWarning {
 	// Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
@@ -117,11 +131,6 @@
 }
 
 
-- (void)viewDidUnload {
-    [self releaseOutlets];
-	// Release any retained subviews of the main view.
-	// e.g. self.myOutlet = nil;
-}
 
 
 
