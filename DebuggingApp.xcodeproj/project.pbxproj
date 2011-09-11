@@ -41,6 +41,19 @@
 		EB7B016D13480C4E00758F36 /* FontSizeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB7B016213480C4E00758F36 /* FontSizeCell.xib */; };
 		EB7B016E13480C4E00758F36 /* DAMainImageExplorer.m in Sources */ = {isa = PBXBuildFile; fileRef = EB7B016513480C4E00758F36 /* DAMainImageExplorer.m */; };
 		EB7B016F13480C4E00758F36 /* DAMainImageExplorer.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB7B016613480C4E00758F36 /* DAMainImageExplorer.xib */; };
+		EB92033B1419F56B000E542E /* DACoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EB92033A1419F56B000E542E /* DACoreDataManager.m */; };
+		EB92033E1419F7E8000E542E /* DebuggingApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EB92033C1419F7E8000E542E /* DebuggingApp.xcdatamodeld */; };
+		EB9203481419F9B7000E542E /* _DATabTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9203411419F9B7000E542E /* _DATabTracker.m */; };
+		EB9203491419F9B7000E542E /* _DATabTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9203411419F9B7000E542E /* _DATabTracker.m */; };
+		EB92034A1419F9B7000E542E /* _DAVCTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9203431419F9B7000E542E /* _DAVCTracker.m */; };
+		EB92034B1419F9B7000E542E /* _DAVCTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9203431419F9B7000E542E /* _DAVCTracker.m */; };
+		EB92034C1419F9B7000E542E /* DATabTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9203451419F9B7000E542E /* DATabTracker.m */; };
+		EB92034D1419F9B7000E542E /* DATabTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9203451419F9B7000E542E /* DATabTracker.m */; };
+		EB92034E1419F9B7000E542E /* DAVCTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9203471419F9B7000E542E /* DAVCTracker.m */; };
+		EB92034F1419F9B7000E542E /* DAVCTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9203471419F9B7000E542E /* DAVCTracker.m */; };
+		EB9203551419FA0F000E542E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB9203541419FA0F000E542E /* CoreData.framework */; };
+		EB9203581419FCD3000E542E /* DATrackingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9203571419FCD3000E542E /* DATrackingManager.m */; };
+		EB9203591419FCD3000E542E /* DATrackingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9203571419FCD3000E542E /* DATrackingManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +112,20 @@
 		EB7B016413480C4E00758F36 /* DAMainImageExplorer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAMainImageExplorer.h; sourceTree = "<group>"; };
 		EB7B016513480C4E00758F36 /* DAMainImageExplorer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAMainImageExplorer.m; sourceTree = "<group>"; };
 		EB7B016613480C4E00758F36 /* DAMainImageExplorer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DAMainImageExplorer.xib; sourceTree = "<group>"; };
+		EB9203391419F56B000E542E /* DACoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DACoreDataManager.h; sourceTree = "<group>"; };
+		EB92033A1419F56B000E542E /* DACoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DACoreDataManager.m; sourceTree = "<group>"; };
+		EB92033D1419F7E8000E542E /* DebuggingApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DebuggingApp.xcdatamodel; sourceTree = "<group>"; };
+		EB9203401419F9B7000E542E /* _DATabTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _DATabTracker.h; sourceTree = "<group>"; };
+		EB9203411419F9B7000E542E /* _DATabTracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _DATabTracker.m; sourceTree = "<group>"; };
+		EB9203421419F9B7000E542E /* _DAVCTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _DAVCTracker.h; sourceTree = "<group>"; };
+		EB9203431419F9B7000E542E /* _DAVCTracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _DAVCTracker.m; sourceTree = "<group>"; };
+		EB9203441419F9B7000E542E /* DATabTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DATabTracker.h; sourceTree = "<group>"; };
+		EB9203451419F9B7000E542E /* DATabTracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DATabTracker.m; sourceTree = "<group>"; };
+		EB9203461419F9B7000E542E /* DAVCTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAVCTracker.h; sourceTree = "<group>"; };
+		EB9203471419F9B7000E542E /* DAVCTracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAVCTracker.m; sourceTree = "<group>"; };
+		EB9203541419FA0F000E542E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		EB9203561419FCD3000E542E /* DATrackingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DATrackingManager.h; sourceTree = "<group>"; };
+		EB9203571419FCD3000E542E /* DATrackingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DATrackingManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +133,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB9203551419FA0F000E542E /* CoreData.framework in Frameworks */,
 				EB32FCE713481F710007A5C3 /* QuartzCore.framework in Frameworks */,
 				EB7B00F913480A6000758F36 /* UIKit.framework in Frameworks */,
 				EB7B00FB13480A6000758F36 /* Foundation.framework in Frameworks */,
@@ -151,6 +179,7 @@
 		EB7B00E913480A6000758F36 = {
 			isa = PBXGroup;
 			children = (
+				EB9203541419FA0F000E542E /* CoreData.framework */,
 				EB32FCE613481F710007A5C3 /* QuartzCore.framework */,
 				EB7B00FE13480A6000758F36 /* DebuggingApp */,
 				EB7B012413480A6000758F36 /* DebuggingAppTests */,
@@ -192,6 +221,7 @@
 		EB7B00FF13480A6000758F36 /* ApplicationMain */ = {
 			isa = PBXGroup;
 			children = (
+				EB9203371419F533000E542E /* Data */,
 				EB32FCDD134817040007A5C3 /* images */,
 				EB7B010013480A6000758F36 /* DebuggingApp-Info.plist */,
 				EB7B010113480A6000758F36 /* InfoPlist.strings */,
@@ -229,6 +259,8 @@
 			children = (
 				EB7B015413480C3F00758F36 /* UITableViewCellAdditions.h */,
 				EB7B015513480C3F00758F36 /* UITableViewCellAdditions.m */,
+				EB9203561419FCD3000E542E /* DATrackingManager.h */,
+				EB9203571419FCD3000E542E /* DATrackingManager.m */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -263,6 +295,32 @@
 				EB42823F1348F2C100A0770C /* DAFullScreenImageView.xib */,
 			);
 			path = ImageExplorer;
+			sourceTree = "<group>";
+		};
+		EB9203371419F533000E542E /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				EB92033F1419F9B7000E542E /* DataObjects */,
+				EB9203391419F56B000E542E /* DACoreDataManager.h */,
+				EB92033A1419F56B000E542E /* DACoreDataManager.m */,
+				EB92033C1419F7E8000E542E /* DebuggingApp.xcdatamodeld */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		EB92033F1419F9B7000E542E /* DataObjects */ = {
+			isa = PBXGroup;
+			children = (
+				EB9203401419F9B7000E542E /* _DATabTracker.h */,
+				EB9203411419F9B7000E542E /* _DATabTracker.m */,
+				EB9203421419F9B7000E542E /* _DAVCTracker.h */,
+				EB9203431419F9B7000E542E /* _DAVCTracker.m */,
+				EB9203441419F9B7000E542E /* DATabTracker.h */,
+				EB9203451419F9B7000E542E /* DATabTracker.m */,
+				EB9203461419F9B7000E542E /* DAVCTracker.h */,
+				EB9203471419F9B7000E542E /* DAVCTracker.m */,
+			);
+			path = DataObjects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -394,6 +452,13 @@
 				EB7B016C13480C4E00758F36 /* FontSizeCell.m in Sources */,
 				EB7B016E13480C4E00758F36 /* DAMainImageExplorer.m in Sources */,
 				EB4282401348F2C100A0770C /* DAFullScreenImageViewController.m in Sources */,
+				EB92033B1419F56B000E542E /* DACoreDataManager.m in Sources */,
+				EB92033E1419F7E8000E542E /* DebuggingApp.xcdatamodeld in Sources */,
+				EB9203481419F9B7000E542E /* _DATabTracker.m in Sources */,
+				EB92034A1419F9B7000E542E /* _DAVCTracker.m in Sources */,
+				EB92034C1419F9B7000E542E /* DATabTracker.m in Sources */,
+				EB92034E1419F9B7000E542E /* DAVCTracker.m in Sources */,
+				EB9203581419FCD3000E542E /* DATrackingManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,6 +467,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB7B012E13480A6000758F36 /* DebuggingAppTests.m in Sources */,
+				EB9203491419F9B7000E542E /* _DATabTracker.m in Sources */,
+				EB92034B1419F9B7000E542E /* _DAVCTracker.m in Sources */,
+				EB92034D1419F9B7000E542E /* DATabTracker.m in Sources */,
+				EB92034F1419F9B7000E542E /* DAVCTracker.m in Sources */,
+				EB9203591419FCD3000E542E /* DATrackingManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,7 +526,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				RUN_CLANG_STATIC_ANALYZER = NO;
+				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -472,7 +542,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				RUN_CLANG_STATIC_ANALYZER = NO;
+				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = iphoneos;
 			};
 			name = Release;
@@ -580,6 +650,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		EB92033C1419F7E8000E542E /* DebuggingApp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EB92033D1419F7E8000E542E /* DebuggingApp.xcdatamodel */,
+			);
+			currentVersion = EB92033D1419F7E8000E542E /* DebuggingApp.xcdatamodel */;
+			path = DebuggingApp.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = EB7B00EB13480A6000758F36 /* Project object */;
 }
