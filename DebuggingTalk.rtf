@@ -1,9 +1,9 @@
-{\rtf1\ansi\ansicpg1252\cocoartf1038\cocoasubrtf350
+{\rtf1\ansi\ansicpg1252\cocoartf1138
 {\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fmodern\fcharset0 Courier;\f2\fnil\fcharset0 LucidaGrande;
 \f3\fmodern\fcharset0 Courier-Oblique;}
 {\colortbl;\red255\green255\blue255;\red48\green51\blue19;\red245\green245\blue245;}
-\margl1440\margr1440\vieww11580\viewh8740\viewkind0
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\qc\pardirnatural
+\margl1440\margr1440\vieww24940\viewh16940\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qc
 
 \f0\b\fs36 \cf0 Advanced Debugging\
 \
@@ -12,16 +12,23 @@
 Questions to: Kendall@KiGiSoftware.com\
 twitter: @kendalldevdiary
 \b0\fs24 \
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 \cf0 \
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
 \b\fs28 \cf0 Code Overview - Instruments\
 \
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
-\i\b0\fs24 \cf0 Instruments reviewed:\
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+\i\b0\fs24 \cf0 Configuration:\
+	
+\i0 You can leave profiling configuration as Release, make sure to choose "DWARF with dSYM" for project "Debug Information Format" entry\
+	Configure Alloc instrument to record reference counts.
+\b\fs28 \
+\
+
+\i\b0\fs24 Instruments reviewed:\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
 \i0 \cf0 	Automation - use to create repeated UI exercises
 \i \
@@ -32,38 +39,47 @@ twitter: @kendalldevdiary
 	CoreAnimation (transparent, misaligned, updated)\
 	Core Data monitoring\
 \
-Apple examples using UI Recorder:\
+Apple examples using UI Automation:\
 \
-http://developer.apple.com/library/mac/#documentation/DeveloperTools/Conceptual/InstrumentsUserGuide/Built-InInstruments/Built-InInstruments.html%23//apple_ref/doc/uid/TP40004652-CH6-SW1\
+http://developer.apple.com/library/ios/#documentation/DeveloperTools/Conceptual/InstrumentsUserGuide/Built-InInstruments/Built-InInstruments.html#//apple_ref/doc/uid/TP40004652-CH6-SW75\
 \
 A good example of more advanced DTrace work can be found here:\
 \
 http://www.macresearch.org/tuning-cocoa-applications-using-dtrace-custom-static-probes-and-instruments\
-\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab920\ql\qnatural\pardirnatural
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab920\pardirnatural
 \cf0 \
-Custom instruments are held in:\
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+Custom DTrace instruments saved are held in:\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
 \b \cf0 ~/Library/Application Support/Instruments/PlugIns/Instruments\
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
 \b0 \cf0 \
-If you encounter errors or crashing in Instruments, try removing your custom instruments\
-\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab920\ql\qnatural\pardirnatural
+Instrument templates are saved nearby in:\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\b \cf0 ~/Library/Application Support/InstrumentsTemplates\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\b0 \cf0 \
+If you encounter errors or crashing in Instruments, try removing your custom DTrace instruments\
+\
+Make sure to watch WWDC 2011 video - "Session 310 - What's New In Instruments" - Especially ARC section covering Leaks and cycles.\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab920\pardirnatural
 \cf0 \
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
 \i \cf0 Lab work:
 \i0 \
-\pard\tx600\tx1220\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab920\ql\qnatural\pardirnatural
-\cf0 	Look for any growing memory or leaks from the app using ObjectAlloc, Heapshot and Leaks when going to change fonts and back again.\
+\pard\tx600\tx1220\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab920\pardirnatural
+\cf0 	Look for memory or leak issues using ObjectAlloc, Heapshot and Leaks when typing custom text in the main Font Explorer screen.  Use Zombie Instrument on Image Explorer.\
 	Try Time Profiler, and scroll font size list up and down to see what methods take the most time.\
-\pard\tx600\tx1220\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
+\pard\tx600\tx1220\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
 \cf0 	Create DTrace instrument to track calls to FontSizeCell awakeFromNib, observe behavior when scrolling font size table. \
 	Finish writing the "GoToImageTabAndPressButtons.js" script (in DebuggingApp/AutomationScripts directory)\
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 \cf0 \
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
 \b\fs28 \cf0 Code In-Depth - GDB
 \b0\fs24 \
@@ -71,11 +87,14 @@ If you encounter errors or crashing in Instruments, try removing your custom ins
 \
 Data Formatters are a great way to see values in debugger.\
 Click next to variable name in debugger display.\
+To print primitive types, use "p" instead of "po" - cast results from objc calls.\
+To print CoreData object properties, use "po [CDObject valueOf:@"propertyName"]"\
+\
 Data Formatters are set for any variable of that type, for all projects until you clear them. In XCode4, you need to right click on a value and select "Edit Summary Format".\
 If you have a Formatter that returns a nNSString, add a trailing ":s" for it to print properly\
 \
 example formatter for NSIndexPath:\
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
 \f1 \cf0 Sec:\{(int)[$VAR section]\}  Row:\{(int)[$VAR row]\} \
 prints "Sec:<Sec#> Row:<Row#>"\
@@ -86,14 +105,14 @@ example formatter for class description:\
 example formatter for arbitrary NSString class variable:\
 \{$VAR->variableName\}:s\
 \
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
 \f0 \cf0 You may need sometimes to use the more direct formatter for strings:\
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
 \f1 \cf0 \{(unichar *)Xcode_CFStringSummary($VAR, $ID)\}:s\
 \
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
 \f0 \cf0 To change the value of C types (int, float) just type in new value in display.
 \f1 \
@@ -106,44 +125,46 @@ NSZombieEnabled (set on Executable in XCode 3, in Scheme->Run->Arguments for XCo
 \
 To see what has happened when a crash occurs, try poking around the registers - you can "po" them if you think objects are being passed as arguments, or "display /s" for string values.  As an example, if your app crashes in objc_MsgSend you can use one the following to print the name of the method being called when the crash occurred:\
 \
-\pard\pardeftab720\sl320\ql\qnatural
+\pard\pardeftab720\sl320
 
 \f2\fs28 \cf2 \cb3 simulator: display /s $ecx
 \f0\fs24 \cf0 \cb1 \
 
-\f2\fs28 \cf2 \cb3 device: display /s $r1
+\f2\fs28 \cf2 \cb3 device: display /s $r1\
+You can also use "p (char *)$register", though sometimes you may not get quite as much information
 \f1\fs24 \cf0 \cb1 \
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 \cf0 \
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
 \f3\i \cf0 Other items reviewed:\
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
 \f0\i0 \cf0 	Breakpoint customization (conditional, take special actions, sounds!)\
+	Exception breakpoints (always set them)\
 	Default break points\
 	Quick Continue\
 	Re-run or skip forward\
 	Debugger Command Line\
 \
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
 \i \cf0 Lab work:
 \f1\i0 \
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
 \f0 \cf0 	Fix font selector to show all fonts instead of one.\
 	Fix checkmark in font selector (supposed to show current font). \
 	Why doesn't alternate font selection change the font on the main screen?\
-	Turn on NSZombie (in executable environment) and play with ImageBrowser buttons, then try using ObjectAlloc/Zombie instrument directly to find the cause of the crash.\
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+	Set up audio/continue breakpoints in ViewDidLoad for each of the tab view controllers, see when they are loaded.\
+  	Switch to ImageExplorer tab,  issue memory warning.  Fix crash.
+\f1 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
-\f1 \cf0 \
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
-
-\f0\b\fs28 \cf0 Common Coding Issues - CLANG and Coding Approaches\
+\f0\b\fs28 \cf0 \
+Common Coding Issues - CLANG and Coding Approaches\
 \
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
 \b0\fs24 \cf0 Use properties for class variables, even private ones (have private class vars).\
 \
@@ -152,24 +173,24 @@ Avoid memory leaks or bad references with viewDidUnload\
 Don't use setters in dealloc!!!\
 \
 Dealloc should be at the top of a file, so you can keep in sync with @synthesize statements.  You may want to separate out IBOutlet releases for ease of use with both viewDidUnload and Dealloc.\
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
 \b\fs28 \cf0 \
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
 \b0\fs24 \cf0 To enable CLANG analysis, turn on "Run Static Analysis", or "Analyze" from Run menu.\
 \
-When using "Build and Archive" with enterprise option, form of link on web page should be:\
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+When using "Archive" with enterprise option, form of link on web page should be:\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
 \b \cf0 itms-services://?action=download-manifest&url=http:/MyServer.com/PathToPlist/ArchivePlistName.plist
 \b0 \
 \
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
 \i \cf0 Lab work:
 \f1\i0 \
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
 \f0 \cf0 	"Analyze" project and examine/fix errors.\
 	Fill in needed releases for viewDidUnload in DAChooseFontTableViewController\
