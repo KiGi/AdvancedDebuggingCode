@@ -32,7 +32,7 @@
 - (void)dealloc
 {
     [previousImages_ release]; previousImages_ = nil;
-    self.image = nil;
+    [image_ release]; image_ = nil;
     [self freeOutlets];
     [super dealloc];
 }

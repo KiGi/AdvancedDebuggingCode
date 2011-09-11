@@ -11,10 +11,11 @@
 
 @interface DAFullScreenImageViewController : UIViewController 
 {
-    IBOutlet UIImageView *imageView_;
+    IBOutlet UIImageView *imageView;
     UIImage *image_;
 }
 
 @property (nonatomic, retain) UIImage *image;
+//@property (nonatomic, assign) IBOutlet UIImageView *imageView;
 
 @end
