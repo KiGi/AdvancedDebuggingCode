@@ -10,35 +10,52 @@
 
 #import "DAMainFontExplorer.h"
 #import "DAPossibleFonts.h"
+#import "DATrackingManager.h"
+
+@interface DAChooseFontTableViewController()
+@property (nonatomic, retain) DAVCTracker *tracker;
+@property (nonatomic, assign) void (^refetcher)(void);
+@end
 
 @implementation DAChooseFontTableViewController
 
-@synthesize delegate;
+@synthesize delegate = delegate_;
+@synthesize tracker = tracker_;
+@synthesize refetcher = refetcher_;
 
 
 - (void)dealloc 
 {
+    [tracker_ release]; tracker_ = nil;
 	[fontList release];
     [super dealloc];
 }
 
-
-/*
-- (id)initWithStyle:(UITableViewStyle)style {
-    // Override initWithStyle: if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-    if (self = [super initWithStyle:style]) {
-    }
-    return self;
+- (void)viewDidUnload {
+	// Release any retained subviews of the main view.
+	// e.g. self.myOutlet = nil;
 }
-*/
 
+
+- (void) refreshFontList
+{
+    [fontList release];
+    fontList = [[[DAPossibleFonts sharedInstance] fullFontList] retain];
+    [myTable reloadData];
+}
 
 - (void)viewDidLoad 
-{
-
-	fontList = [[[DAPossibleFonts sharedInstance] fullFontList] retain];
-	
+{	
 	self.title = @"Choose Font";
+    
+    fontList = [[[DAPossibleFonts sharedInstance] fullFontList] retain];
+
+    //[self refreshFontList];
+        
+    __block __typeof__(self) _self = self;
+    self.refetcher = ^{
+        [_self refreshFontList];
+    };
 	
     // Uncomment for crash!
 //	[self performSelector:@selector(hurryUp) withObject:nil afterDelay:7.0f];
@@ -54,11 +71,14 @@
 	NSLog(@"Hurry!");
 }
 
-/*
+
 - (void)viewWillAppear:(BOOL)animated {
+//    DAVCTracker *useTracker = [DATrackingManager trackingForVC:[self class]];
+//    useTracker.VCLengthAccessed = 0;
+//    self.tracker = useTracker;
     [super viewWillAppear:animated];
 }
-*/
+
 /*
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -66,6 +86,8 @@
 */
 
 - (void)viewWillDisappear:(BOOL)animated {
+    //self.tracker.VCLengthAccessed = 30.0;
+    //[DATrackingManager saveVCTrackingResults];
 	[super viewWillDisappear:animated];
 }
 
@@ -90,10 +112,6 @@
 	// Release any cached data, images, etc that aren't in use.
 }
 
-- (void)viewDidUnload {
-	// Release any retained subviews of the main view.
-	// e.g. self.myOutlet = nil;
-}
 
 
 #pragma mark Table view methods
