@@ -14,16 +14,19 @@
 {
 	IBOutlet UITableView *myTable;
 	IBOutlet UITextField *customTextField;
-	NSString *chosenFont;
+    IBOutlet UIButton *revButton;
+	NSString *chosenFont_;
 	NSString *fontExampleString;
 	
 	FontSizeCell *exampleCell;
 	
-	NSInteger selectedCell;
+	NSInteger selectedCell_;
 }
 
 @property (nonatomic, copy) NSString *fontExampleString;
 @property (nonatomic, copy) NSString *chosenFont;
+
+- (IBAction) reversePressed:(id)sender;
 
 @end
 

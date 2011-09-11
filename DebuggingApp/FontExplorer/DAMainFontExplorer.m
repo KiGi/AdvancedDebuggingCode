@@ -11,22 +11,30 @@
 #import "DAChooseFontTableViewController.h"
 #import "UITableViewCellAdditions.h"
 #import "DAPossibleFonts.h"
+#import "DATrackingManager.h"
 
 @interface DAMainFontExplorer ()
 - (void) freeOutlets;
 - (void) addChangeButton;
+
+@property (nonatomic) NSInteger selectedCell;
+@property (nonatomic, retain) NSTimer *timer;
+
 @end
 
 
 @implementation DAMainFontExplorer
 
 @synthesize fontExampleString;
-@synthesize chosenFont;
-
+@synthesize chosenFont = chosenFont_;
+@synthesize selectedCell = selectedCell_;
+@synthesize timer = timer_;
 
 - (void)dealloc 
 {
-	[chosenFont release]; chosenFont = nil;
+    [revButton release]; revButton = nil;
+    [timer_ release]; timer_ = nil;
+	[chosenFont_ release]; chosenFont_ = nil;
 	[fontExampleString release]; fontExampleString = nil;
 	[self freeOutlets];
     [super dealloc];
@@ -34,8 +42,15 @@
 
 - (void) freeOutlets
 {
+    [revButton release]; revButton = nil;
 	[myTable release]; myTable = nil;
-	[customTextField release]; customTextField = nil;
+	[customTextField release];
+}
+
+- (void)viewDidUnload {
+	// Release any retained subviews of the main view.
+	// e.g. self.myOutlet = nil;
+	[self freeOutlets];
 }
 
 #pragma mark -
@@ -108,11 +123,13 @@
 	
 	
 	CGSize maxSize = CGSizeMake(exampleCell.exampleTextLabel.frame.size.width, maxHeight);
+    if ( maxSize.width < 305 || maxSize.width > 320 )
+        maxSize.width = 320;
 	int row = indexPath.row;
-	UIFont *font = [UIFont fontWithName:chosenFont size:row];
+	UIFont *font = [UIFont fontWithName:self.chosenFont size:row];
 	// This call is theoretically better, but does not actually work (always returns one row).  
-	//CGSize bestSize = [fontExampleString sizeWithFont:font  forWidth:exampleCell.exampleTextLabel.frame.size.width lineBreakMode:UILineBreakModeWordWrap];
-	CGSize bestSize = [fontExampleString sizeWithFont:font constrainedToSize:maxSize];
+	//CGSize bestSize = [fontExampleString sizeWithFont:font  forWidth:maxSize.width lineBreakMode:UILineBreakModeWordWrap];
+	CGSize bestSize = [fontExampleString sizeWithFont:font constrainedToSize:maxSize lineBreakMode:UILineBreakModeWordWrap];
 	
 	return bestSize.height;
 }
@@ -123,7 +140,40 @@
 - (void) changeFont
 {
 	DAChooseFontTableViewController *chooseController = [[DAChooseFontTableViewController alloc] initWithNibName:@"DAChooseFontTableView" bundle:nil];
+    chooseController.delegate = self;
 	[self.navigationController pushViewController:chooseController animated:YES];
+}
+
+
+- (void) backgroundReverseString:(NSString *)revString
+{
+    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+    NSInteger len = [revString length];
+    NSMutableString *reversedString = [NSMutableString stringWithCapacity:len];
+    
+    while (len > 0) 
+    {
+        unichar uch = [revString characterAtIndex:--len]; 
+        [reversedString appendString:[NSString stringWithCharacters:&uch length:1]];
+    } 
+    
+    [customTextField performSelectorOnMainThread:@selector(setText:) withObject:reversedString waitUntilDone:YES];
+    [myTable performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+
+    [DATrackingManager trackingForVC:[self class]].VCLengthAccessedValue = 50;
+    [DATrackingManager saveVCTrackingResults];
+
+    [pool drain];
+}
+
+- (IBAction) reversePressed:(id)sender
+{
+    [self performSelectorInBackground:@selector(backgroundReverseString:) withObject:customTextField.text];
+}
+
+- (void)timerCheckpoint:(NSTimer*)theTimer
+{
+    NSLog(@"Hit timer checkpoint, textfield contents = %@", customTextField.text);
 }
 
 #pragma mark -
@@ -145,10 +195,15 @@
 
 - (void)viewDidLoad 
 {
-	if ( chosenFont == nil )
-		chosenFont = [[[DAPossibleFonts sharedInstance] fullFontList] objectAtIndex:0];
-	
+	if ( self.chosenFont == nil )
+		self.chosenFont = [[[DAPossibleFonts sharedInstance] fullFontList] objectAtIndex:0];
 
+	self.timer = [NSTimer scheduledTimerWithTimeInterval:10.0f target:self selector:@selector(timerCheckpoint:) userInfo:nil repeats:YES];
+    [self.timer fire];
+//    
+//    NSRunLoop * theRunLoop = [NSRunLoop currentRunLoop];
+//    [theRunLoop addTimer:self.timer forMode:NSDefaultRunLoopMode];
+    
 	[self addChangeButton];
 		
 	// initializes example string to default value
@@ -168,7 +223,7 @@
 
 - (void)viewWillAppear:(BOOL)animated 
 {
-	self.navigationItem.title = chosenFont;
+	self.navigationItem.title = self.chosenFont;
 	[[NSNotificationCenter defaultCenter] addObserver:self
 											 selector:@selector(keyboardWillAppear:) 
 												 name:UIKeyboardWillShowNotification
@@ -177,7 +232,9 @@
 											 selector:@selector(keyboardWillDisappear:) 
 												 name:UIKeyboardWillHideNotification
 											   object:nil];	
+    [DATrackingManager trackTabPressed:0];
 	[super viewWillAppear:animated];
+
 }
 
 - (void) viewWillDisappear:(BOOL)animated
@@ -192,12 +249,6 @@
     [super didReceiveMemoryWarning];
 	
 	// Release any cached data, images, etc that aren't in use.
-}
-
-- (void)viewDidUnload {
-	// Release any retained subviews of the main view.
-	// e.g. self.myOutlet = nil;
-	[self freeOutlets];
 }
 
 #pragma mark -
@@ -235,9 +286,12 @@
 	}
     
     // Set up the cell...
-	[cell setFontName:chosenFont size:indexPath.row exampleText:fontExampleString];
+    
+    NSString *fontName = self.chosenFont;
+    
+	[cell setFontName:fontName size:indexPath.row exampleText:fontExampleString];
 	
-	if ( indexPath.row == selectedCell )
+	if ( indexPath.row == self.selectedCell )
 		cell.accessoryType = UITableViewCellAccessoryCheckmark;
 	else
 		cell.accessoryType = UITableViewCellAccessoryNone;
@@ -251,9 +305,9 @@
 {
    
 	NSString *rowDescription;
-	NSIndexPath *oldIndexPath = [NSIndexPath indexPathForRow:selectedCell inSection:0];
+	NSIndexPath *oldIndexPath = [NSIndexPath indexPathForRow:self.selectedCell inSection:0];
 	
-	selectedCell = indexPath.row;
+	self.selectedCell = indexPath.row;
 	
 	// Clear old cell
 	[tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:oldIndexPath] withRowAnimation:UITableViewRowAnimationFade];
@@ -269,47 +323,6 @@
 	}
 	
 }
-
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
 
 
 
