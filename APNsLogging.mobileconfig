@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>PayloadContent</key>
+  <array>
+    <dict>
+      <key>PayloadDescription</key>
+      <string>Sets defaults</string>
+      <key>PayloadDisplayName</key>
+      <string>Sync apsd logs back to Mac</string>
+      <key>PayloadIdentifier</key>
+      <string>com.apple.Sync-apsd-logs-back-to-Mac.a</string>
+      <key>PayloadOrganization</key>
+      <string>Apple</string>
+      <key>PayloadType</key>
+      <string>com.apple.defaults.managed</string>
+      <key>PayloadUUID</key>
+      <string>71BE48C2-ECDD-477E-Bx906-15E948E2Eddd</string>
+      <key>PayloadVersion</key>
+      <integer>1</integer>
+      <key>PayloadContent</key>
+      <array>
+        <dict>
+          <key>DefaultsDomainName</key>
+          <string>com.apple.persistentconnection</string>
+          <key>DefaultsData</key>
+          <dict>
+            <key>PCWriteLogs</key>
+            <true/>
+          </dict>
+        </dict>
+        <dict>
+          <key>DefaultsDomainName</key>
+          <string>com.apple.apsd</string>
+          <key>DefaultsData</key>
+          <dict>
+            <key>APSWriteLogs</key>
+            <true/>
+            <key>APSLogLevel</key>
+            <integer>6</integer>
+          </dict>
+        </dict>
+      </array>
+    </dict>
+  </array>
+  <key>PayloadDescription</key>
+  <string>Sync apsd logs back to Mac</string>
+  <key>PayloadDisplayName</key>
+  <string>Sync apsd logs back to Mac</string>
+  <key>PayloadIdentifier</key>
+  <string>com.apple.Sync-apsd-logs-back-to-Mac</string>
+  <key>PayloadOrganization</key>
+  <string>Apple</string>
+  <key>PayloadType</key>
+  <string>Configuration</string>
+  <key>PayloadUUID</key>
+  <string>643777DD-5A6B-49E9-BC80-2CFxEDDEBdd</string>
+  <key>PayloadVersion</key>
+  <integer>1</integer>
+</dict>
+</plist>
