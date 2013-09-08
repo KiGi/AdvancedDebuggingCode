@@ -1,0 +1,14 @@
+1) Install command line tools from XCode preferences
+2) Run this to install a ponyd script locally:
+
+curl -sk https://cloud.github.com/downloads/square/PonyDebugger/bootstrap-ponyd.py |\
+ python - --ponyd-symlink=/usr/local/bin/ponyd ~/Library/PonyDebugger
+
+3) Start Pony gateway server
+
+ponyd serve --listen-interface=127.0.0.1
+
+4) To test and see if it is running, browse to:
+
+http://localhost:9000
+

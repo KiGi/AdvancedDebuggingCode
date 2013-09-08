@@ -1,0 +1,23 @@
+var target = UIATarget.localTarget();  
+ // speed is in meters/sec  
+ var points = [  
+                 {location:{latitude:48.8899,longitude:14.2}, options:{speed:8, altitude:200, horizontalAccuracy:10, verticalAccuracy:15}},  
+                 {location:{latitude:48.8899,longitude:14.9}, options:{speed:11, altitude:200, horizontalAccuracy:10, verticalAccuracy:15}},  
+                 {location:{latitude:48.8899,longitude:14.6}, options:{speed:12, altitude:200, horizontalAccuracy:10, verticalAccuracy:15}},  
+                 {location:{latitude:48.8899,longitude:14.7}, options:{speed:13, altitude:200, horizontalAccuracy:10, verticalAccuracy:15}},  
+                 {location:{latitude:49.2,longitude:14.10}, options:{speed:15, altitude:200, horizontalAccuracy:10, verticalAccuracy:15}},  
+                 {location:{latitude:49.4,longitude:14.8}, options:{speed:15, altitude:200, horizontalAccuracy:10, verticalAccuracy:15}},  
+                 {location:{latitude:48.8899,longitude:14.9}, options:{speed:9, altitude:200, horizontalAccuracy:10, verticalAccuracy:15}},  
+                 {location:{latitude:48.8899,longitude:15.1}, options:{speed:8, altitude:200, horizontalAccuracy:10, verticalAccuracy:15}},  
+                 {location:{latitude:48.8899,longitude:16.1}, options:{speed:3, altitude:200, horizontalAccuracy:10, verticalAccuracy:15}},  
+                 ];  
+var i = 0;
+ while ( 1 == 1 )  
+ {  
+     var useIndex = i % points.length;
+      target.setLocationWithOptions(points[useIndex].location,points[useIndex].options);  
+      target.captureScreenWithName(i+"_screencap_.png");  
+      target.delay(1.0);  
+      i++;
+ }  
+

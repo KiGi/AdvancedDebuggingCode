@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1487" systemVersion="12B19" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="FlickrItem" representedClassName="KGFlickrItem" syncable="YES">
+        <attribute name="authorFlickrID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="authorName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dateTaken" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="flickrDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="link" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="published" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="media" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="FlickrMedia" inverseName="item" inverseEntity="FlickrMedia" syncable="YES"/>
+        <relationship name="tags" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="FlickrTag" inverseName="item" inverseEntity="FlickrTag" syncable="YES"/>
+    </entity>
+    <entity name="FlickrMedia" representedClassName="KGFlickrMedia" syncable="YES">
+        <attribute name="mediaSize" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mediaURL" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="item" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="FlickrItem" inverseName="media" inverseEntity="FlickrItem" syncable="YES"/>
+    </entity>
+    <entity name="FlickrTag" representedClassName="KGFlickrTag" syncable="YES">
+        <attribute name="complexTag" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="tagValue" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="item" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="FlickrItem" inverseName="tags" inverseEntity="FlickrItem" syncable="YES"/>
+    </entity>
+    <entity name="LocationSaveItem" representedClassName="KGLocationSaveItem" syncable="YES">
+        <attribute name="lattitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="locationDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="FlickrItem" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="FlickrMedia" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="FlickrTag" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="LocationSaveItem" positionX="0" positionY="0" width="0" height="0"/>
+    </elements>
+</model>

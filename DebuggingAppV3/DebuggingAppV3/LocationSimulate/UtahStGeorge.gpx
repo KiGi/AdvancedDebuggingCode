@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<gpx version="1.1"
+     creator="GMapToGPX 6.4j - http://www.elsewhere.org/GMapToGPX/"
+     xmlns="http://www.topografix.com/GPX/1/1"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+      <name>route0</name>
+      <cmt>U.S. 89 S to St George, UT</cmt>
+      <desc>U.S. 89 S to St George, UT</desc>
+      <wpt lat="38.57996" lon="-112.25796">
+         <name>GRTP-001</name>
+         <cmt>Head south on U.S. 89 S</cmt>
+         <desc>Head south on U.S. 89 S</desc>
+      </wpt>
+      <wpt lat="37.82274" lon="-112.43563">
+         <name>GRTP-002</name>
+         <cmt>Turn left onto U.S. 89 S/E Center St</cmt>
+         <desc>Turn left onto U.S. 89 S/E Center St</desc>
+      </wpt>
+      <wpt lat="37.04826" lon="-112.53383">
+         <name>GRTP-003</name>
+         <cmt>Continue straight onto W Center St</cmt>
+         <desc>Continue straight onto W Center St</desc>
+      </wpt>
+      <wpt lat="37.04792" lon="-112.52666">
+         <name>GRTP-004</name>
+         <cmt>Continue straight onto S 100 E</cmt>
+         <desc>Continue straight onto S 100 E</desc>
+      </wpt>
+      <wpt lat="37.03749" lon="-112.52504">
+         <name>GRTP-005</name>
+         <cmt>Continue onto U.S. 89A S</cmt>
+         <desc>Continue onto U.S. 89A S</desc>
+      </wpt>
+      <wpt lat="36.94564" lon="-112.52645">
+         <name>GRTP-006</name>
+         <cmt>Turn right onto AZ-389 W/Pratt St</cmt>
+         <desc>Turn right onto AZ-389 W/Pratt St</desc>
+      </wpt>
+      <wpt lat="37.00025" lon="-112.99889">
+         <name>GRTP-007</name>
+         <cmt>Continue onto UT-59 N</cmt>
+         <desc>Continue onto UT-59 N</desc>
+      </wpt>
+      <wpt lat="37.17511" lon="-113.28809">
+         <name>GRTP-008</name>
+         <cmt>Turn right onto S Main St</cmt>
+         <desc>Turn right onto S Main St</desc>
+      </wpt>
+      <wpt lat="37.17661" lon="-113.28813">
+         <name>GRTP-009</name>
+         <cmt>Take the 1st left onto UT-9 W/State St</cmt>
+         <desc>Take the 1st left onto UT-9 W/State St</desc>
+      </wpt>
+      <wpt lat="37.16776" lon="-113.45206">
+         <name>GRTP-010</name>
+         <cmt>Take the ramp onto I-15 S</cmt>
+         <desc>Take the ramp onto I-15 S</desc>
+      </wpt>
+      <wpt lat="37.08771" lon="-113.57942">
+         <name>GRTP-011</name>
+         <cmt>Take exit 6 for Utah 18 N toward Bluff St</cmt>
+         <desc>Take exit 6 for Utah 18 N toward Bluff St</desc>
+      </wpt>
+      <wpt lat="37.08494" lon="-113.58349">
+         <name>GRTP-012</name>
+         <cmt>Turn right onto UT-18 N</cmt>
+         <desc>Turn right onto UT-18 N</desc>
+      </wpt>
+      <wpt lat="37.08683" lon="-113.58462">
+         <name>GRTP-013</name>
+         <cmt>Take the 1st right onto S Main St</cmt>
+         <desc>Take the 1st right onto S Main St</desc>
+      </wpt>
+      <wpt lat="37.08845" lon="-113.58346">
+         <name>GRTP-014</name>
+         <cmt>Turn right onto E 1160 S</cmt>
+         <desc>Turn right onto E 1160 S</desc>
+      </wpt>
+      <wpt lat="37.09107" lon="-113.57492">
+         <name>GRTP-015</name>
+         <cmt>E 1160 S turns slightly left and becomes S 400 E</cmt>
+         <desc>E 1160 S turns slightly left and becomes S 400 E</desc>
+      </wpt>
+      <wpt lat="37.09472" lon="-113.57493">
+         <name>GRTP-016</name>
+         <cmt>Turn left</cmt>
+         <desc>Turn left</desc>
+      </wpt>
+      <wpt lat="37.09464" lon="-113.57728">
+         <name>GRTP-017</name>
+         <cmt>Turn right</cmt>
+         <desc>Turn right</desc>
+      </wpt>
+      <wpt lat="37.09465" lon="-113.57807">
+         <name>GMLS-001</name>
+         <cmt>St George, UT</cmt>
+         <desc>St George, UT</desc>
+      </wpt>
+</gpx>

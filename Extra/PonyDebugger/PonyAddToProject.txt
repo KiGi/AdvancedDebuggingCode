@@ -1,0 +1,32 @@
+To add to XCode project settings:
+
+CocoaPods:
+
+sudo gem install cocoapods
+pod setup
+
+Podfile:
+	platform :ios, '5.0'
+	pod 'PonyDebugger', '~> 0.3.0'
+
+pod install
+
+
+Manually (currently does not work)
+
+Add PonyDebugger xcode project from extra directory as a subproject of your project.
+Add PonyDebugger Target Dependency In "Build Phases" 
+Add libSocketRocket and libPonyDebugger to project frameworks (should be easily found on add)
+In Build Settings:
+Other Linker Flags: -ObjC
+
+// This part does not work at the moment, needs revision
+Header Search Paths (debug) (make non-recursive with checkmark!):
+"$(CONFIGURATION_BUILD_DIR)/usr/local/include"
+
+Add frameworks:
+* libicucore.dylib
+* CFNetwork.framework
+* CoreData.framework
+* Security.framework
+
